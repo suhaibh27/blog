@@ -1,0 +1,68 @@
+                    <div>	
+                        <div class="split-Header mb-3">
+                        <h2 class="p-3 headerColor">{{Title}}</h2>
+                        <p class="socialMedia ">Feb 29 by suhaib</p>
+                        </div>
+                        <p style="background-color: #2d2e3c;">{{Description}}</p>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Comment</label>
+                                <textarea class="form-control" id="commentText" rows="3"></textarea>
+                            </div>
+                            <input type='hidden' name='sid' id="subjectID" value="{{subjectId}}">
+                            <button type="submit" class="btn btn-primary mb-2">Comment</button>
+                        </form>
+                        <p>{{errorMsg}}</p>
+                    </div>
+                    <div id="commentDiv">
+                        <h3>Comments</h3>
+                    </div>
+                </div>
+            </div>
+        </div>	
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                        url: "CommentController.php?commentAction=getComments&id="+$('#subjectID').val(),
+                        dataType:'JSON',
+                        success: function(commentsData)
+                        {
+                            var counter=0;
+                            $.each(commentsData,function(index, value){
+                                var style = counter%2==0?"":"subject-color";
+                                $("#commentDiv").append(
+                                    "<div class='"+style+" p-3'>\
+                                        <h6>"+value['username']+"</h6><hr class='backgroundColor-left'/>\
+                                        <p class='ml-3'>"+value['comment']+"</p>\
+                                    </div>"
+                                )
+                                counter++;
+                            }) 
+                        }
+                    })
+                $("#commentForm").submit(function(){
+                    $.ajax({
+                        dataType: "text",
+                        url: "CommentController.php",
+                        type: 'POST',
+                        data: 
+                        { 
+                            comment:$("#commentText").val(), 
+                            sid:$("#subjectID").val()
+                        },
+                        success: function(data)
+                        {
+                            $("#commentDiv").append(
+                                "<div class='"+style+" p-3'>\
+                                        <h6>"+data+"</h6><hr class='backgroundColor-left'/>\
+                                        <p class='ml-3'>"+$("#commentText").val()+"</p>\
+                                    </div>"
+                            )
+                        }
+                    })
+                    return false;
+                })
+            })
+        </script>
+    </body>
+</html>

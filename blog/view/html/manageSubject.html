@@ -1,0 +1,18 @@
+    <h3 class="p-3 split-Header headerColor">{{header}}</h3>
+    <div class="alert alert-danger errorMsg hide" role="alert" id="errorMsg">
+    </div>
+    <form method='post' class='col-4' id="subjectForm">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Subject Title</label>
+            <input autocomplete="off" value="{{Title}}" type="text" name="subjectTitle" id="subjectTitle" class="form-control requiredInput" placeholder="Enter Subject Title">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea autocomplete="off" placeholder="description" name="subjectDescription" id="subjectDescription" class="form-control requiredInput" rows="3">{{Description}}</textarea>
+        </div>
+        <input type='hidden' name='id' value={{ID}}>
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+    </form>
+</body>
+<script src="{{mainPath}}view/js/subject.js"></script>
+</html>

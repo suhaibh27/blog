@@ -1,0 +1,72 @@
+#subjectTitle{
+	background-color: #d9ddfc;
+}
+#subjectDescription{
+	background-color: #d9ddfc;
+
+}
+.full-height{
+	height: 100%;
+}
+.backgroundColor-right{
+	background-color: #272834;
+}
+.backgroundColor-left{
+	background-color: #f1f3f2;
+}
+.backgroundColor{
+	background-color: #f1f3f2;
+
+}
+.backgroundColor-left{
+	background-color: #e7e7e9;
+}
+.subject-color{
+	background-color: #2d2e3c;
+}
+.splitter{
+	border-right:1px solid #ccc;
+}
+.clear-padding{
+	padding-left: 0px !important;
+}
+.upBorder{
+	border-top:   1px solid #46475a   ;
+}
+.roundCorner{
+  border-radius: 10px;
+}
+.socialMedia{
+	color: #6d6f8e;
+	font-size: 13;
+}
+.socialMedia:hover{
+	color: #b9bbd6;
+	text-decoration: none;
+}
+.split-horizontal{
+	border-bottom:1px solid #5d5d5d;
+}
+.headerColor
+{
+	color: #a7addf
+}
+.errorMsg
+{
+	color: red;
+}
+.requiredField
+{
+	border: 2px solid red;
+}
+.hide
+{
+	display: none;
+}
+.left
+{
+	position: fixed;
+    right: 68%;
+    top: 0%;
+    width: 40%;
+}

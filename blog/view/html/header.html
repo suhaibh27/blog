@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Our Blog</title>
+		<link rel="stylesheet" href="{{mainPath}}view/css/bootstrap.css" />
+		<link rel="stylesheet" href="{{mainPath}}view/css/bootstrap.css.map" />
+		<link rel="stylesheet" type="text/css" href="{{mainPath}}view/css/mystyle.css" />
+		
+		<script src="{{mainPath}}view/js/jquery-3.5.1.min.js"></script>
+		<script src="{{mainPath}}view/js/main.js"></script>
+	</head>
+
+	<body>
+
+		<div class="container-fluid">
+
+			 <!--<div class="d-flex bd-highlight  bg-info row">
+				<h3 class="mr-auto p-2 bd-highlight">blog</h3>
+				<div class="p-2 bd-highlight "><a href="" class="text-white">download</a> </div>
+				<div class="p-2 bd-highlight mr-5"><a href="" class="text-white">download</a> </div>
+			 </div>-->
+			<div class="row full-height">
+				<div class=" col-4 clear-padding backgroundColor-left " >
+					<div class="col-12 mr-2 splitter row backgroundColor full-height left">
+						<div class="col-4"></div>
+						<div class="col-7 full-height ">
+							<h6 class="mt-5">FEATURED PHOTO</h6>
+							<img src="{{mainPath}}view/images/featured.jpg" width="220px" height="170px">
+						</div>
+					</div>
+				</div>				
+				<div class="col-8 text-white backgroundColor-right " id="mainDiv" > 
+					<nav class="navbar navbar-expand-lg navbar-light split-horizontal"id="right_dev">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						  <span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						  <ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+							  <a class="nav-link text-white" href="{{mainPath}}index.php">Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+							  <a class="nav-link text-white" href="#">About</a>
+							</li>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-white" href="#">ContactUs</a>
+							  </li>
+						  </ul>
+						  <!-- <form class="form-inline my-2 my-lg-0">
+							<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						  </form> -->
+						  <a href="{{profileURL}}">{{profileText}}</a>
+						</div>
+					  </nav>					

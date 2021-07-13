@@ -1,0 +1,67 @@
+    </body>
+    <script>
+    var pageNumber=1;
+    drawSubject(pageNumber);
+    $(window).scroll(function()
+    {
+        if($(window).scrollTop() == ($(document).height() - $(window).height()))
+        {
+            drawSubject(++pageNumber);
+        }
+    });
+    function drawSubject(pageNumber)
+    {
+        $.ajax({
+            url: "controller/SubjectController.php?pageNum="+ pageNumber,
+            dataType: 'json', 
+            success: function(subjects){
+                    if(subjects.length == 0)
+                        $(window).unbind('scroll');
+                    var mainPath = "http://localhost/blog/";
+                    var counter=1;
+                    subjects.forEach(subject => 
+                    {
+                        if (counter%2==1)
+                        {
+                            $("#mainDiv").append('\
+                            <div class="col-10 mt-5 row">\
+                                <img class="col-4" src="http://localhost/blog/view/images/programming.jpeg "width="250px" />\
+                                <div class="col-8">	\
+                                    <h4><a href="controller/subjectController.php?id='+ subject["ID"] +'&subjectAction=getSubject">'+subject["Title"]+'</a></h4>\
+                                    <p>'+subject["Description"]+'</p>\
+                                </div>	\
+                                <div class="col-4"></div>\
+                                    <div class="row upBorder col-8 pt-2" >\
+                                    <p class="socialMedia col-3">'+subject["date"]+'</p>\
+                                    <a href="" class="socialMedia col-3">'+subject["username"]+' </a>\
+                                    <a href="" class="col-2 socialMedia">Tweet</a>\
+                                    <a href="" class="col-2 socialMedia">Share</a>\
+                                    <a href="" class="col-2 socialMedia">Views</a>\
+                                </div> \
+                            </div>');                
+                        }
+                        else
+                        {
+                            $("#mainDiv").append('\
+                            <div class="col-10 mt-5 row p-4 subject-color roundCorner">\
+                                <div class="col-8">	\
+                                    <h4><a href="controller/subjectController.php?id='+subject["ID"]+'&subjectAction=getSubject">'+subject["Title"]+'</a></h4>\
+                                    <p>'+subject["Description"]+'</p>\
+                                </div>\
+                                <img class="col-4" src="'+mainPath+'view/images/programming.jpeg "width="250px" />\
+                                <div class="row upBorder col-8 pt-2" >\
+                                    <p class="socialMedia col-3">'+subject["date"]+' </p>\
+                                    <p class="socialMedia col-3"> '+subject["username"]+' </p>\
+                                    <a href="" class="col-2 socialMedia">Tweet</a>\
+                                    <a href="" class="col-2 socialMedia">Share</a>\
+                                    <a href="" class="col-2 socialMedia">Views</a>\
+                                </div>\
+                            </div>');
+                        }
+                        counter++;
+                    });
+            }
+        });   
+    }
+    </script>
+</html>
